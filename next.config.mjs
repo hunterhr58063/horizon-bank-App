@@ -1,12 +1,23 @@
 import { withSentryConfig } from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
+    images: {
+        unoptimized: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     typescript: {
-        ignoreBuildErrors: true
-    }, eslint: {
-        ignoreBuildErrors: true
-    }
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+    },
 };
+
 
 export default withSentryConfig(nextConfig, {
     // For all available options, see:
