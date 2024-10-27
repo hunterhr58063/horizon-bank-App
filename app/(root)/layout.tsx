@@ -23,7 +23,6 @@ export default async function RootLayout({
                         <MobileNav user={loggedIn} />
                     </div>
                 </div>
-
                 {children}
             </div>
         </main>
